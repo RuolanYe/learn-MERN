@@ -11,6 +11,10 @@ const goalSchema = mongoose.Schema(
         type: String,
         required: [true, 'Please add a tet value'],
     },
+    articleImage:{
+        type: String,
+        required: true,
+    },
 },
 {
     timestamps: true,
