@@ -13,7 +13,7 @@ const goalSchema = mongoose.Schema(
     },
     articleImage:{
         type: String,
-        required: true,
+        required: false,
     },
 },
 {

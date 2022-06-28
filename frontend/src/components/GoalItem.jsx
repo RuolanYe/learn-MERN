@@ -9,6 +9,7 @@ const GoalItem = ({goal}) =>{
   // console.log(goal)
   return (
     <div className='goal'>
+      {goal.articleImage ? (<>
         <div>
             {new Date(goal.createdAt).toLocaleString
             ('en-US')}
@@ -19,6 +20,7 @@ const GoalItem = ({goal}) =>{
         </Card>
         
         <button onClick={() => dispatch (deleteGoal(goal._id))} className="close">X</button>
+        </>):(<></>)}
     </div>
   )
 }
