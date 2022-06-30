@@ -6,12 +6,11 @@ import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@ma
 // function GoalItem({goal}) {
 const GoalItem = ({goal}) =>{
   const dispatch = useDispatch()
-  // console.log(goal)
+  console.log(goal)
   return (
     <div className='goal'>
-      {goal.articleImage ? (<>
         <div>
-            {new Date(goal.createdAt).toLocaleString
+            {new Date(goal.eventDate?goal.eventDate:goal.createdAt).toLocaleString
             ('en-US')}
         </div>
         <h2>{goal.text}</h2>
@@ -20,7 +19,7 @@ const GoalItem = ({goal}) =>{
         </Card>
         
         <button onClick={() => dispatch (deleteGoal(goal._id))} className="close">X</button>
-        </>):(<></>)}
+        
     </div>
   )
 }

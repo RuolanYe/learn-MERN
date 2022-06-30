@@ -9,10 +9,14 @@ const goalSchema = mongoose.Schema(
     },
     text:{
         type: String,
-        required: [true, 'Please add a tet value'],
+        required: [true, 'Please add a text value'],
     },
     articleImage:{
         type: String,
+        required: false,
+    },
+    eventDate:{
+        type: Date,
         required: false,
     },
 },

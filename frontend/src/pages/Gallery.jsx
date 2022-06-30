@@ -44,6 +44,7 @@ function Gallery() {
     <section className="content">
       {goals.length > 0 ? (
         <div>
+          {/* sort */}
           {goals.map((goal) => (
             goal.articleImage ? (<GoalItem key={goal._id} goal={goal}/>):(<></>)            
           ))}
