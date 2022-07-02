@@ -27,6 +27,8 @@ const setGoal = asyncHandler(async (req, res) => {
         articleImage: req.body.articleImage,
         user: req.user.id,
         eventDate: req.body.eventDate,
+        watering: req.body.watering,
+        fertilizing: req.body.fertilizing,
     })
 
     res.status(200).json(goal)

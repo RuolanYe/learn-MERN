@@ -3,7 +3,8 @@ import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {createGoal} from '../features/goals/goalSlice'
 import FileBase from 'react-file-base64';
-import Grid from '@material-ui/core/Grid'
+// import Grid from '@material-ui/core/Grid'
+import { Grid, Checkbox, FormControlLabel } from '@material-ui/core';
 // import DateFnsUtils from '@date-io/date-fns'
 import MomentUtils from '@date-io/moment';
 import {
@@ -19,7 +20,9 @@ function GoalForm() {
     const [postData, setPostData] = useState({
         text: '',
         articleImage: '',
-        eventDate: new Date()
+        eventDate: new Date(),
+        watering: false,
+        fertilizing: false,
     });
 
     const dispatch = useDispatch()
@@ -33,6 +36,12 @@ function GoalForm() {
         // setFileName('')
     }
 
+    const handleWateringChange =(event) =>{
+
+
+    }
+
+
   return (
     <section className='from'>
         <form onSubmit = {onSubmit} encType="multipart/form-data">
@@ -44,6 +53,24 @@ function GoalForm() {
                 id='text'
                 value={postData.text}
                 onChange={(e) => setPostData({...postData,text: e.target.value})}
+                />
+            </div>
+            <div className='form-group'>
+                <FormControlLabel style={{display: 'inline'}} control={
+                    <Checkbox  
+                        checked={postData.watering}
+                        onChange={(e) => setPostData({...postData,watering: e.target.checked})}
+                        // style={{display: 'flex', flexDirection: 'row'}}
+                    />}
+                    label="Watering"
+                />
+                <FormControlLabel style={{display: 'inline'}} control={
+                    <Checkbox  
+                        checked={postData.fertilizing}
+                        onChange={(e) => setPostData({...postData,fertilizing: e.target.checked})}
+                        // style={{display: 'flex', flexDirection: 'row'}}
+                    />}
+                    label="Fertilizing"
                 />
             </div>
             <div className='form-group'>

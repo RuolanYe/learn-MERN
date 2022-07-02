@@ -19,9 +19,17 @@ const goalSchema = mongoose.Schema(
         type: Date,
         required: false,
     },
+    watering:{
+        type: Boolean,
+        required:true
+    },
+    fertilizing:{
+        type: Boolean,
+        required:false
+    }
 },
 {
-    timestamps: true,
+    timestamps: false,
 }
 )
 
