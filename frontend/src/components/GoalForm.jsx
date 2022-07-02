@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import {createGoal} from '../features/goals/goalSlice'
 import FileBase from 'react-file-base64';
 import Grid from '@material-ui/core/Grid'
-import DateFnsUtils from '@date-io/date-fns'
+// import DateFnsUtils from '@date-io/date-fns'
 import MomentUtils from '@date-io/moment';
 import {
     MuiPickersUtilsProvider,
@@ -27,7 +27,7 @@ function GoalForm() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-
+        // console.log(postData)
         dispatch(createGoal(postData));
         // setPostData('')
         // setFileName('')
@@ -35,9 +35,9 @@ function GoalForm() {
 
   return (
     <section className='from'>
-        <form onSubmit = {()=>onSubmit} encType="multipart/form-data">
+        <form onSubmit = {onSubmit} encType="multipart/form-data">
             <div className='form-group'>
-                <label htmlFor = 'text'>Goal</label>
+                <label htmlFor = 'text'>Notes</label>
                 <input
                 type='text'
                 name='text'
@@ -85,7 +85,7 @@ function GoalForm() {
             </div>
             <div className='form-group'>
                 <button className='btn btn-block' type='submit'>
-                    Add Goal 
+                    Add Notes
                 </button>
             </div>
         </form>

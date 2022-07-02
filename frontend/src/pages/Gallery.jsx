@@ -13,7 +13,17 @@ function Gallery() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const {goals, isLoading, isError, message} = useSelector((state)=>state.goals)
+  const { goals, isLoading, isError, message } = useSelector((state)=>state.goals)
+
+  let sortedGoals = [...goals].sort((a, b) => {
+    if (a.eventDate > b.eventDate){
+      return 1
+    }
+    return -1
+  })
+
+  // console.log(sortedGoals)
+
 
   useEffect(() => {
     if(isError){
@@ -37,15 +47,15 @@ function Gallery() {
 
   return <>
     <section className="heading">
-      <h1>Welcome {user && user.name}</h1>
-      <p>Picture Gallery</p>
+    <h1>Welcome {user && user.name}</h1>
+      <p>Photo Gallery</p>
     </section>
     
     <section className="content">
       {goals.length > 0 ? (
         <div>
-          {/* sort */}
-          {goals.map((goal) => (
+          
+          {sortedGoals.map((goal) => (
             goal.articleImage ? (<GoalItem key={goal._id} goal={goal}/>):(<></>)            
           ))}
         </div>
