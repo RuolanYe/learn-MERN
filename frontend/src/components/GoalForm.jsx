@@ -1,11 +1,8 @@
-import axios from 'axios'
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {createGoal} from '../features/goals/goalSlice'
 import FileBase from 'react-file-base64';
-// import Grid from '@material-ui/core/Grid'
 import { Grid, Checkbox, FormControlLabel } from '@material-ui/core';
-// import DateFnsUtils from '@date-io/date-fns'
 import MomentUtils from '@date-io/moment';
 import {
     MuiPickersUtilsProvider,
@@ -13,7 +10,6 @@ import {
     KeyboardDatePicker
 } from '@material-ui/pickers'
 
-const API_URL = '/api/users/'
 
 
 function GoalForm() {
@@ -30,15 +26,7 @@ function GoalForm() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        // console.log(postData)
         dispatch(createGoal(postData));
-        // setPostData('')
-        // setFileName('')
-    }
-
-    const handleWateringChange =(event) =>{
-
-
     }
 
 
@@ -60,7 +48,6 @@ function GoalForm() {
                     <Checkbox  
                         checked={postData.watering}
                         onChange={(e) => setPostData({...postData,watering: e.target.checked})}
-                        // style={{display: 'flex', flexDirection: 'row'}}
                     />}
                     label="Watering"
                 />
@@ -68,7 +55,6 @@ function GoalForm() {
                     <Checkbox  
                         checked={postData.fertilizing}
                         onChange={(e) => setPostData({...postData,fertilizing: e.target.checked})}
-                        // style={{display: 'flex', flexDirection: 'row'}}
                     />}
                     label="Fertilizing"
                 />
@@ -77,7 +63,6 @@ function GoalForm() {
                 <MuiPickersUtilsProvider utils={MomentUtils}>
                     <Grid container justifyContent='space-around'>
                         <KeyboardDatePicker
-                            // disableToolbar
                             variant = 'dialog'
                             format = 'MM/DD/yyyy'
                             margin = 'normal'
@@ -90,7 +75,6 @@ function GoalForm() {
                             }}
                         />
                         <KeyboardTimePicker
-                            // disableToolbar
                             margin = 'normal'
                             id = 'time-picker'
                             label = 'Time Picker'

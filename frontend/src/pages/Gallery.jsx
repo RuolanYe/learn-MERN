@@ -1,11 +1,10 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
-import { getGoals, reset } from '../features/goals/goalSlice'
-import {Grid, CircularProgress} from '@mui/material';
+import { getGoals} from '../features/goals/goalSlice'
+
 
 
 function Gallery() {
@@ -22,8 +21,6 @@ function Gallery() {
     return -1
   })
 
-  // console.log(sortedGoals)
-
 
   useEffect(() => {
     if(isError){
@@ -36,9 +33,6 @@ function Gallery() {
 
     dispatch(getGoals())
 
-    // return () => {
-    //   dispatch(reset())
-    // }
   }, [user, navigate, isError,message, dispatch])
 
   if(isLoading){
@@ -53,8 +47,7 @@ function Gallery() {
     
     <section className="content">
       {goals.length > 0 ? (
-        <div>
-          
+        <div>         
           {sortedGoals.map((goal) => (
             goal.articleImage ? (<GoalItem key={goal._id} goal={goal}/>):(<></>)            
           ))}

@@ -5,7 +5,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Spinner from '../components/Spinner'
-import { getGoals, reset } from '../features/goals/goalSlice'
+import { getGoals} from '../features/goals/goalSlice'
+import imageIcon from '../images/imageIcon.png'
+import wateringIcon from '../images/wateringIcon.png'
+import fertilizingIcon from '../images/fertilizer_17.png'
+
 
 
 function Dashboard() {
@@ -13,7 +17,7 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const {goals, isLoading, isError, message} = useSelector((state)=>state.goals)
+  const {isLoading, isError, message} = useSelector((state)=>state.goals)
  
 
   useEffect(() => {
@@ -36,9 +40,20 @@ function Dashboard() {
   return (<>
     <section className="heading">
       <h1>Welcome {user && user.name}</h1>
-      <p>Dashboard</p>
+      <p>Notes Form
+      </p>
     </section>
     <GoalForm/>
+
+    <section className="heading">
+      <p>
+        <br/>
+        Calendar
+      </p>
+    </section>
+    <p><img src={imageIcon} alt="imageIcon" height="30"/> &nbsp; Photo &nbsp; &nbsp; &nbsp; 
+    <img src={wateringIcon} alt="wateringIcon" height="30"/> &nbsp; Watering &nbsp; &nbsp; &nbsp; 
+    <img src={fertilizingIcon} alt="fertilizingIcon" height="30"/> &nbsp; Fertilizing &nbsp; &nbsp; &nbsp; </p>
     <Calendar/>
     </>
   )

@@ -1,10 +1,12 @@
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {GrGallery} from 'react-icons/gr'
+import {BsCalendar2Check} from "react-icons/bs";
 import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout, reset} from '../features/auth/authSlice'
 
-//rfce
+
+
 function Header() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -18,19 +20,18 @@ function Header() {
 
   return (
     <header className='header'>
-        <div className = "logo">
-            <Link to='/'>Dashboard</Link>
-        </div>
+        <ul>
+            <li>
+                <Link to='/'>
+                <BsCalendar2Check/> Dashboard
+                </Link>
+            </li>
+        </ul>
         <ul>
             {user ? (<>           
-            {/* <li>
-                <Link to='/'>
-                    <FaSignInAlt/>Dashboard
-                </Link>
-            </li> */}
             <li>
                 <Link to='/gallery'>
-                    <GrGallery/>Gallery  
+                    <GrGallery/> Gallery  
                 </Link>
             </li>
             <button className='btn' onClick={onLogout}>
