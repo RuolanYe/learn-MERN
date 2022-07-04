@@ -51,9 +51,9 @@ function Dashboard() {
         Calendar
       </p>
     </section>
-    <p><img src={imageIcon} alt="imageIcon" height="30"/> &nbsp; Photo &nbsp; &nbsp; &nbsp; 
-    <img src={wateringIcon} alt="wateringIcon" height="30"/> &nbsp; Watering &nbsp; &nbsp; &nbsp; 
-    <img src={fertilizingIcon} alt="fertilizingIcon" height="30"/> &nbsp; Fertilizing &nbsp; &nbsp; &nbsp; </p>
+    <p><img src={imageIcon} alt="imageIcon" width="5%"/> &nbsp; Photo &nbsp; &nbsp; &nbsp; 
+    <img src={wateringIcon} alt="wateringIcon" width="5%"/> &nbsp; Watering &nbsp; &nbsp; &nbsp; 
+    <img src={fertilizingIcon} alt="fertilizingIcon" width="5%"/> &nbsp; Fertilizing &nbsp; &nbsp; &nbsp; </p>
     <Calendar/>
     </>
   )
